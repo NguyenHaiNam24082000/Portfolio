@@ -175,7 +175,7 @@ export default function Web() {
                 alignItems: "center",
                 boxShadow: "#000 0px 0px 0px 2px inset, #e3e5ff 10px -10px 0px -3px, #000 10px -10px"
               }}>
-                <Stepper orientation="vertical">
+                <Stepper active={-1} orientation="vertical">
                   <Stepper.Step label="Step 1" description="Create an account" />
                   <Stepper.Step label="Step 2" description="Verify email" />
                   <Stepper.Step label="Step 3" description="Get full access" />
