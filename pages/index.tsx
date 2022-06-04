@@ -116,7 +116,7 @@ export default function Web() {
               }}
               transform="uppercase"
             >
-              Hi! I'm Nguyen Hai Nam 👋
+              {"Hi! I'm Nguyen Hai Nam 👋"}
             </Text>
             <Text
               sx={{
