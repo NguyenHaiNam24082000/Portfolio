@@ -1,7 +1,8 @@
-import { Accordion, Affix, Avatar, BackgroundImage, Box, Button, ColorSwatch, Group, Image, ScrollArea, SimpleGrid, Stack, Stepper, Tabs, Text, Textarea, TextInput, ThemeIcon, Transition } from "@mantine/core";
+import { Accordion, Affix, Avatar, BackgroundImage, Box, Button, Center, ColorSwatch, Group, Image, ScrollArea, SimpleGrid, Stack, Stepper, Tabs, Text, Textarea, TextInput, ThemeIcon, Timeline, Transition } from "@mantine/core";
 import { useWindowScroll } from '@mantine/hooks';
 import { ArrowBigTop } from 'tabler-icons-react';
 import { Marquee } from "../public/components/Marquee";
+import Typewriter from 'typewriter-effect';
 
 const titlesMarquee = {
   "en-US": "Welcome",
@@ -115,7 +116,7 @@ export default function Web() {
               }}
               transform="uppercase"
             >
-              Nguyen Hai Nam
+              Hi! I'm Nguyen Hai Nam 👋
             </Text>
             <Text
               sx={{
@@ -128,7 +129,25 @@ export default function Web() {
               variant="gradient"
               gradient={{ from: 'indigo', to: 'cyan', deg: 45 }}
             >
-              #Developer
+              <Typewriter
+                onInit={(typewriter) => {
+                  typewriter.typeString('Hello World!')
+                    .callFunction(() => {
+                      console.log('String typed out!');
+                    })
+                    .pauseFor(2500)
+                    .deleteAll()
+                    .callFunction(() => {
+                      console.log('All strings were deleted');
+                    })
+                    .start();
+                }}
+                options={{
+                  strings: ['Hello', 'World'],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
             </Text>
             <Button sx={{
               border: "3px solid #000",
@@ -160,8 +179,8 @@ export default function Web() {
                     fontWeight: "bold",
                   }}
                 >
-                  Team<br />
-                  Check-in
+                  My<br />
+                  Skills
                 </Text>
               </Box>
               <Box sx={{
@@ -175,11 +194,17 @@ export default function Web() {
                 alignItems: "center",
                 boxShadow: "#000 0px 0px 0px 2px inset, #e3e5ff 10px -10px 0px -3px, #000 10px -10px"
               }}>
-                <Stepper active={-1} orientation="vertical">
-                  <Stepper.Step label="Step 1" description="Create an account" />
-                  <Stepper.Step label="Step 2" description="Verify email" />
-                  <Stepper.Step label="Step 3" description="Get full access" />
-                </Stepper>
+                <Timeline active={1} bulletSize={24} lineWidth={2}>
+                  <Timeline.Item bullet={"✔"} title="Now">
+                    <Text color="dimmed" size="sm">Learn and learn</Text>
+                    <Text size="xs" mt={4}>2018 - {new Date().getFullYear()}</Text>
+                  </Timeline.Item>
+
+                  <Timeline.Item title="Future">
+                    <Text color="dimmed" size="sm">Learn more</Text>
+                    <Text size="xs" mt={4}>{new Date().getFullYear()} - ...</Text>
+                  </Timeline.Item>
+                </Timeline>
               </Box>
             </Group>
             <Group sx={{
@@ -207,18 +232,62 @@ export default function Web() {
                     <ColorSwatch color={"#33C748"} size={12} />
                   </Group>
                 </Box>
+                <ScrollArea>
+                  <Stack p="xl">
+                    <Stack spacing={0}>
+                      <Text size="xl" weight={500} transform="uppercase">Languages</Text>
+                      <Group>
+                        <Image src="assets/images/logos/html-5.svg" width={48} height={48} alt="HTML logo" />
+                        <Image src="assets/images/logos/css-3.svg" width={48} height={48} alt="CSS logo" />
+                        <Image src="assets/images/logos/js.svg" width={48} height={48} alt="JS logo" />
+                        <Image src="assets/images/logos/java.svg" width={48} height={48} alt="Java logo" />
+                        <Image src="assets/images/logos/python.svg" width={48} height={48} alt="Python logo" />
+                        <Image src="assets/images/logos/php.svg" width={48} height={48} alt="PHP logo" />
+                        <Image src="assets/images/logos/cpp.svg" width={48} height={48} alt="Cpp logo" />
+                        <Image src="assets/images/logos/cs.svg" width={48} height={48} alt="Cs logo" />
+                      </Group>
+                    </Stack>
+                    <Stack spacing={0}>
+                      <Text size="xl" weight={500} transform="uppercase">Front End</Text>
+                      <Group>
+                        <Image src="assets/images/logos/react.svg" width={48} height={48} alt="React logo" />
+                        <Image src="assets/images/logos/android.svg" width={48} height={48} alt="Android logo" />
+                        <Image src="assets/images/logos/next-js.svg" width={48} height={48} alt="NextJS logo" />
+                      </Group>
+                    </Stack>
+                    <Stack spacing={0}>
+                      <Text size="xl" weight={500} transform="uppercase">Back End</Text>
+                      <Group>
+                        <Image src="assets/images/logos/node-js.svg" width={48} height={48} alt="NodeJS logo" />
+                        <Image src="assets/images/logos/express-js.svg" width={48} height={48} alt="ExpressJS logo" />
+                        <Image src="assets/images/logos/laravel.svg" width={46} height={48} alt="Laravel logo" />
+                      </Group>
+                    </Stack>
+                    <Stack spacing={0}>
+                      <Text size="xl" weight={500} transform="uppercase">Tools</Text>
+                      <Group>
+                        <Image src="assets/images/logos/codepen.svg" width={48} height={48} alt="Codepen logo" />
+                        <Image src="assets/images/logos/atom.svg" width={48} height={48} alt="Atom logo" />
+                        <Image src="assets/images/logos/android-studio.svg" width={46} height={48} alt="Android Studio logo" />
+                        <Image src="assets/images/logos/jb-IntelliJ-IDEA.svg" width={48} height={48} alt="IntelliJ IDEA logo" />
+                        <Image src="assets/images/logos/jb-pycharm-edu.svg" width={48} height={48} alt="Pycharm edu logo" />
+                        <Image src="assets/images/logos/redux.svg" width={48} height={48} alt="Redux logo" />
+                        <Image src="assets/images/logos/sublime-text.svg" width={48} height={48} alt="Sublime Text logo" />
+                        <Image src="assets/images/logos/vs-code.svg" width={48} height={48} alt="Vs Code logo" />
+                        <Image src="assets/images/logos/git.svg" width={48} height={48} alt="Git logo" />
+                        <Image src="assets/images/logos/docker.svg" width={48} height={48} alt="Docker logo" />
+                        <Image src="assets/images/logos/eclipse.svg" width={48} height={48} alt="Eclipse logo" />
+                        <Image src="assets/images/logos/npm.svg" width={48} height={48} alt="NPM logo" />
+                      </Group>
+                    </Stack>
+                  </Stack>
+                </ScrollArea>
               </Box>
             </Group>
           </Group>
-          <Box sx={{
-            position: "relative",
-            height: "720px",
-          }}>
+          <SimpleGrid cols={5}>
             <Box
               sx={{
-                position: "absolute",
-                left: "-50px",
-                top: "0",
                 transform: "rotate(-25deg)",
                 width: "200px",
                 height: "200px",
@@ -230,13 +299,10 @@ export default function Web() {
             // data-speed="2"
             // className="move"
             >
-              Bring world aaaaaaaaa aaaaaaaaaaaaa  a
+              Hello world!
             </Box>
             <Box
               sx={{
-                position: "absolute",
-                left: "150px",
-                top: "250px",
                 transform: "rotate(15deg)",
                 width: "200px",
                 height: "200px",
@@ -246,13 +312,10 @@ export default function Web() {
               }}
               p="xl"
             >
-              Bring world aaaaaaaaa aaaaaaaaaaaaa  a
+              Hello world!
             </Box>
             <Box
               sx={{
-                position: "absolute",
-                left: "350px",
-                top: "500px",
                 transform: "rotate(-10deg)",
                 width: "200px",
                 height: "200px",
@@ -262,13 +325,10 @@ export default function Web() {
               }}
               p="xl"
             >
-              Bring world aaaaaaaaa aaaaaaaaaaaaa  a
+              Hello world!
             </Box>
             <Box
               sx={{
-                position: "absolute",
-                left: "0px",
-                top: "500px",
                 transform: "rotate(5deg)",
                 width: "200px",
                 height: "200px",
@@ -278,14 +338,11 @@ export default function Web() {
               }}
               p="xl"
             >
-              Bring world aaaaaaaaa aaaaaaaaaaaaa  a
+              Hello world!
             </Box>
             <Box
               sx={{
-                position: "absolute",
-                left: "50%",
-                top: "50px",
-                transform: "rotate(-10deg) translateX(-50%)",
+                transform: "rotate(-10deg)",
                 width: "200px",
                 height: "200px",
                 background: "#FFE6C8",
@@ -294,13 +351,10 @@ export default function Web() {
               }}
               p="xl"
             >
-              Bring world aaaaaaaaa aaaaaaaaaaaaa  a
+              Hello world!
             </Box>
             <Box
               sx={{
-                position: "absolute",
-                right: "250px",
-                top: "350px",
                 transform: "rotate(25deg)",
                 width: "200px",
                 height: "200px",
@@ -310,13 +364,10 @@ export default function Web() {
               }}
               p="xl"
             >
-              Bring world aaaaaaaaa aaaaaaaaaaaaa  a
+              Hello world!
             </Box>
             <Box
               sx={{
-                position: "absolute",
-                right: "-50px",
-                top: "500px",
                 transform: "rotate(-10deg)",
                 width: "200px",
                 height: "200px",
@@ -326,13 +377,10 @@ export default function Web() {
               }}
               p="xl"
             >
-              Bring world aaaaaaaaa aaaaaaaaaaaaa  a
+              Hello world!
             </Box>
             <Box
               sx={{
-                position: "absolute",
-                right: "-50px",
-                top: "50px",
                 transform: "rotate(15deg)",
                 width: "200px",
                 height: "200px",
@@ -342,9 +390,35 @@ export default function Web() {
               }}
               p="xl"
             >
-              Bring world aaaaaaaaa aaaaaaaaaaaaa  a
+              Hello world!
             </Box>
-          </Box>
+            <Box
+              sx={{
+                transform: "rotate(-15deg)",
+                width: "200px",
+                height: "200px",
+                background: "#FFC8C8",
+                filter: "drop-shadow(-1px 6px 5px rgba(50, 50, 0))",
+                clipPath: "polygon(0 0, 80% 0%, 100% 20%, 100% 100%, 100% 100%, 0 100%, 0 100%, 0 0)",
+              }}
+              p="xl"
+            >
+              Hello world!
+            </Box>
+            <Box
+              sx={{
+                transform: "rotate(30deg)",
+                width: "200px",
+                height: "200px",
+                background: "#FFC8C8",
+                filter: "drop-shadow(-1px 6px 5px rgba(50, 50, 0))",
+                clipPath: "polygon(0 0, 80% 0%, 100% 20%, 100% 100%, 100% 100%, 0 100%, 0 100%, 0 0)",
+              }}
+              p="xl"
+            >
+              Hello world!
+            </Box>
+          </SimpleGrid>
           <Box sx={{
             background: "#fff",
             width: "100%",
@@ -385,192 +459,190 @@ export default function Web() {
                 radius={0}
                 src={`assets/images/GRID.svg`}
               ></BackgroundImage>
-              <Avatar sx={{
+              <Stack sx={{
                 left: "50%",
                 top: "50%",
                 transform: "translate(-50%, -50%)",
                 position: "absolute",
-                border: "5px solid #fff",
-                borderRadius: "50%",
-              }} size={120} src={"https://anytype.io/images/avatar-1.png"} alt="no image here" color="indigo" />
+                textAlign: "center",
+              }}>
+                <Avatar sx={{
+                  border: "5px solid #fff",
+                  borderRadius: "50%",
+                }} size={120} src={"https://avatars.githubusercontent.com/u/59411728?v=4"} alt="no image here" color="indigo" />
+                <Text size="xl" weight={500} transform="uppercase">My Projects</Text>
+              </Stack>
             </Box>
             <ScrollArea style={{ height: 500 }}>
-              <SimpleGrid cols={5} p="xl" breakpoints={[
-                { maxWidth: 1450, cols: 4 },
-                { maxWidth: 1100, cols: 3 },
-                { maxWidth: 900, cols: 2 },
-                { maxWidth: 600, cols: 1 },
-              ]}>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }}
-                  p="xl"
-                >
-                  {/* <Avatar src={null} alt="no image here" color="indigo">
-                    <Image
-                      radius="md"
-                      src="https://anytype.io/images/cards/1.png"
-                      alt="Random unsplash image"
-                      width={28}
-                      height={28}
-                    />
-                  </Avatar> */}
-                  <ThemeIcon sx={{
-                    fontSize: 24,
-                  }} variant="light" size="xl">
-                    🗒
-                  </ThemeIcon>
-                  <Text size="xl" weight={700}>Note</Text>
-                  Set
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }}
-                  p="xl"
-                >
-                  <ThemeIcon sx={{
-                    fontSize: 24,
-                  }} variant="light" size="xl">
-                    📷
-                  </ThemeIcon>
-                  <Text size="xl" weight={700}>Images</Text>
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }}
-                  p="xl">
-                  <ThemeIcon sx={{
-                    fontSize: 24,
-                  }} variant="light" size="xl">
-                    🎥
-                  </ThemeIcon>
-                  <Text size="xl" weight={700}>Videos</Text>
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }} p="xl">
-                  <ThemeIcon sx={{
-                    fontSize: 24,
-                  }} variant="light" size="xl">
-                    🔗
-                  </ThemeIcon>
-                  <Text size="xl" weight={700}>Videos</Text>
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }} p="xl">
-                  <ThemeIcon sx={{
-                    fontSize: 24,
-                  }} variant="light" size="xl">
-                    📅
-                  </ThemeIcon>
-                  <Text size="xl" weight={700}>Videos</Text>
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }} p="xl"
-                >
-                  <ThemeIcon sx={{
-                    fontSize: 24,
-                  }} variant="light" size="xl">
-                    📌
-                  </ThemeIcon>
-                  <Text size="xl" weight={700}>Images</Text>
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }} p="xl"
-                >
-                  <ThemeIcon sx={{
-                    fontSize: 24,
-                  }} variant="light" size="xl">
-                    💰
-                  </ThemeIcon>
-                  <Text size="xl" weight={700}>Images</Text>
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }}>
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }}>
-                </Box>
-                <Box sx={{
-                  background: "#fff",
-                  width: "200px",
-                  height: "200px",
-                  border: "2px solid #000",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
-                }}>
-                </Box>
-              </SimpleGrid>
+              <Center>
+                <SimpleGrid cols={5} p="xl" breakpoints={[
+                  { maxWidth: 1450, cols: 4 },
+                  { maxWidth: 1100, cols: 3 },
+                  { maxWidth: 900, cols: 2 },
+                  { maxWidth: 600, cols: 1 },
+                ]}>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }}
+                    p="xl"
+                  >
+                    <ThemeIcon sx={{
+                      fontSize: 24,
+                    }} variant="light" size="xl">
+                      🗒
+                    </ThemeIcon>
+                    <Text size="xl" weight={700}>Note</Text>
+                    Set
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }}
+                    p="xl"
+                  >
+                    <ThemeIcon sx={{
+                      fontSize: 24,
+                    }} variant="light" size="xl">
+                      📷
+                    </ThemeIcon>
+                    <Text size="xl" weight={700}>Images</Text>
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }}
+                    p="xl">
+                    <ThemeIcon sx={{
+                      fontSize: 24,
+                    }} variant="light" size="xl">
+                      🎥
+                    </ThemeIcon>
+                    <Text size="xl" weight={700}>Videos</Text>
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }} p="xl">
+                    <ThemeIcon sx={{
+                      fontSize: 24,
+                    }} variant="light" size="xl">
+                      🔗
+                    </ThemeIcon>
+                    <Text size="xl" weight={700}>Videos</Text>
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }} p="xl">
+                    <ThemeIcon sx={{
+                      fontSize: 24,
+                    }} variant="light" size="xl">
+                      📅
+                    </ThemeIcon>
+                    <Text size="xl" weight={700}>Videos</Text>
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }} p="xl"
+                  >
+                    <ThemeIcon sx={{
+                      fontSize: 24,
+                    }} variant="light" size="xl">
+                      📌
+                    </ThemeIcon>
+                    <Text size="xl" weight={700}>Images</Text>
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }} p="xl"
+                  >
+                    <ThemeIcon sx={{
+                      fontSize: 24,
+                    }} variant="light" size="xl">
+                      💰
+                    </ThemeIcon>
+                    <Text size="xl" weight={700}>Images</Text>
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }}>
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }}>
+                  </Box>
+                  <Box sx={{
+                    background: "#fff",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #000",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "#000 0px 0px 0px 2px inset, #000 5px -5px"
+                  }}>
+                  </Box>
+                </SimpleGrid>
+              </Center>
             </ScrollArea>
           </Box>
           <Tabs styles={{
